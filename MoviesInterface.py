@@ -10,18 +10,22 @@ dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 table = dynamodb.Table('Movies')
 
 def create_movie(movie):
-    title = movie.get("Title", "Unknown Title")
-    year = movie.get("Year", "Unknown Year")
-    ratings = movie.get("Ratings", "No ratings")
-    genre = movie.get("Genre", "Unknown Genre")
+    title = input("What is the movie title? ")
+    year = input("What is the year? ")
+    runtime = input("What is the runtime? ")
 
-    print(f"  Title  : {title}")
-    print(f"  Year   : {year}")
-    print(f"  Ratings: {ratings}")
-    print(f"  Genre: {genre}")
-    print()
+    table.put_item(
+        Item={
+            "Title": title,
+            "Year": year,
+            "Runtime": runtime,
+            "Ratings": []
+        }
+    )
 
-def print_movie(movie):
+    print("Movie created.")
+
+def print_all_movies(movie):
     title = movie.get("Title", "Unknown Title")
     year = movie.get("Year", "Unknown Year")
     ratings = movie.get("Ratings", "No ratings")
