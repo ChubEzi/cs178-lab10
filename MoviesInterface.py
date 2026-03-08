@@ -36,7 +36,7 @@ def print_movie(movie):
     print(f"  Ratings: {ratings}")
     print(f"  Runtime: {runtime}") 
 
-def print_all_movies(movie):
+def print_all_movies():
     """Scan the entire Movies table and print each item."""
    
     response = table.scan()
