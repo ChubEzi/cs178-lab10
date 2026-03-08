@@ -25,17 +25,30 @@ def create_movie(movie):
 
     print("Movie created.")
 
-def print_all_movies(movie):
+def print_movie(movie):
     title = movie.get("Title", "Unknown Title")
     year = movie.get("Year", "Unknown Year")
     ratings = movie.get("Ratings", "No ratings")
-    genre = movie.get("Genre", "Unknown Genre")
+    runtime = movie.get("Runtime", "Unknown")  
 
     print(f"  Title  : {title}")
     print(f"  Year   : {year}")
     print(f"  Ratings: {ratings}")
-    print(f"  Genre: {genre}")
-    print()
+    print(f"  Runtime: {runtime}") 
+
+def print_all_movies(movie):
+    """Scan the entire Movies table and print each item."""
+   
+response = table.scan()
+items = response.get("Items", [])
+   
+if not items:
+    print("No movies found. Make sure your DynamoDB table has data.")
+    return
+   
+    print(f"Found {len(items)} movie(s):\n")
+    for movie in items:
+        print_movie(movie)
 
 
 def update_rating():
