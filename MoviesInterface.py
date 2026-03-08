@@ -39,16 +39,16 @@ def print_movie(movie):
 def print_all_movies(movie):
     """Scan the entire Movies table and print each item."""
    
-response = table.scan()
-items = response.get("Items", [])
+    response = table.scan()
+    items = response.get("Items", [])
    
-if not items:
-    print("No movies found. Make sure your DynamoDB table has data.")
-    return
+    if not items:
+        print("No movies found. Make sure your DynamoDB table has data.")
+        return
    
-    print(f"Found {len(items)} movie(s):\n")
-    for movie in items:
-        print_movie(movie)
+        print(f"Found {len(items)} movie(s):\n")
+        for movie in items:
+            print_movie(movie)
 
 
 def update_rating():
