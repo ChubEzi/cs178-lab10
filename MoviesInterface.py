@@ -47,8 +47,8 @@ def print_all_movies():
         return
    
     print(f"Found {len(items)} movie(s):\n")
-        for movie in items:
-            print_movie(movie)
+    for movie in items:
+        print_movie(movie)
 
 
 def update_rating():
