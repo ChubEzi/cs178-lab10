@@ -9,7 +9,7 @@ import boto3
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
 table = dynamodb.Table('Movies')
 
-def create_movie(movie):
+def create_movie():
     title = input("What is the movie title? ")
     year = input("What is the year? ")
     runtime = input("What is the runtime? ")
@@ -25,7 +25,7 @@ def create_movie(movie):
 
     print("Movie created.")
 
-def print_movie(movie):
+def print_movie():
     title = movie.get("Title", "Unknown Title")
     year = movie.get("Year", "Unknown Year")
     ratings = movie.get("Ratings", "No ratings")
