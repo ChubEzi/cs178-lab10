@@ -46,7 +46,7 @@ def print_all_movies():
         print("No movies found. Make sure your DynamoDB table has data.")
         return
    
-        print(f"Found {len(items)} movie(s):\n")
+    print(f"Found {len(items)} movie(s):\n")
         for movie in items:
             print_movie(movie)
 
