@@ -25,7 +25,7 @@ def create_movie():
 
     print("Movie created.")
 
-def print_movie():
+def print_movie(movie):
     title = movie.get("Title", "Unknown Title")
     year = movie.get("Year", "Unknown Year")
     ratings = movie.get("Ratings", "No ratings")
